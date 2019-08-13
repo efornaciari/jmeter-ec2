@@ -1,4 +1,34 @@
-# JMeter ec2 Script
+# Sense360 Setup:
+
+## Setup
+
+Follow these instructions from top to bottom to setup this project.
+
+### Setup git Remotes
+
+Clone the repository
+
+```bash
+cd ~/workspace
+git clone git@github.com:Sense360/jmeter-ec2.git
+```
+
+Go to https://github.com/Sense360/jmeter-ec2 and click `Fork` button and fork the repository to your own account.
+
+Standardize remote names
+
+```bash
+cd jmeter-ec2
+
+# "upstream" will refer to Sense360 mainline
+git remote add upstream git@github.com:Sense360/jmeter-ec2.git
+
+# "origin" will refer to your own Fork
+git remote remove origin
+git remote add origin git@github.com:$GITHUB_USERNAME/jmeter-ec2.git
+```
+
+# JMeter EC2 Script
 
 This shell script will allow you to run your local JMeter jmx files either using Amazon's EC2 service or you can provide it with a simple, comma-delimited list of hosts to use. Summary results are printed to the console as the script runs and then all result data is downloaded and concatenated to one file when the test completes ready for more detailed analysis offline.
 

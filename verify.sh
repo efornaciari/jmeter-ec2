@@ -14,8 +14,12 @@ function install_java() {
     echo "Updating apt-get..."
     sudo apt-get -qqy update
     echo "Installing java..."
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -qqy install openjdk-7-jre
-    echo "Java installed"
+    sudo add-apt-repository ppa:openjdk-r/ppa -y
+    sudo apt-get update
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -qqy install openjdk-8-jre
+    sudo update-java-alternatives --set java-1.8.0-openjdk-amd64
+    echo "Java install: "
+    java -version
 }
 
 function install_jmeter() {
